@@ -118,6 +118,9 @@ spec:
         resources:
 {{ toYaml .Values.agones.controller.resources | indent 10 }}
 {{- end }}
+        ports:
+        - name: http
+          containerPort: {{ .Values.agones.controller.http.port }}
         volumeMounts:
         - name: certs
           mountPath: /home/agones/certs
